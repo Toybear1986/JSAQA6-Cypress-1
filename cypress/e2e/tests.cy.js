@@ -45,7 +45,7 @@ describe("login screen", () => {
 });
 
 /* Тесты проверки функциональности работы с книгами в избранном*/
-describe.only("Working with favorites", () => {
+describe("Working with favorites", () => {
   beforeEach(() => {
     cy.login("test@test.com", "test");
   });
