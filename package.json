@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "cy:headed:testconfig": "cypress run --headed --browser chrome --config-file test.config.js",
+    "cy:headed:mobileconfig": "cypress run --headed --browser chrome --config viewportHeight=1366,viewportWidth=768",
     "cy:headless:chrome": "cypress run --headless --browser chrome",
     "cy:headless:electron": "cypress run --headless --browser electron",
     "cy:headed:chrome": "cypress run --headed --browser chrome",

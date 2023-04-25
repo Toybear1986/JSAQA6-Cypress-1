@@ -1,10 +1,6 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  env: {
-    viewportHeight: 768,
-    viewportWidth: 1366,
-  },
   e2e: {
     baseUrl: "http://localhost:3000",
     retries: {
