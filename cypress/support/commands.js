@@ -71,16 +71,22 @@ Cypress.Commands.add(
 
 Cypress.Commands.add("deleteFavorite", (title) => {
   cy.get(".h-100")
-    .contains(title)
-    .get(".card-footer > .btn")
+    .first()
+    .within(() => {
+      cy.get(".card-title").contains(title);
+    })
+    .find(".card-footer > .btn")
     .contains("Delete from favorite")
     .click();
 });
 
 Cypress.Commands.add("addFavorite", (title) => {
   cy.get(".h-100")
-    .contains(title)
-    .get(".card-footer > .btn")
+    .first()
+    .within(() => {
+      cy.get(".card-title").contains(title);
+    })
+    .find(".card-footer > .btn")
     .contains("Add to favorite")
     .click();
 });

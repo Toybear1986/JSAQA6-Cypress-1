@@ -45,7 +45,7 @@ describe("login screen", () => {
 });
 
 /* Тесты проверки функциональности работы с книгами в избранном*/
-describe("Working with favorites", () => {
+describe.only("Working with favorites", () => {
   beforeEach(() => {
     cy.login("test@test.com", "test");
   });
@@ -87,15 +87,21 @@ describe("Working with favorites", () => {
     it("delete from favorites", () => {
       cy.deleteFavorite("Тихий шепот");
       cy.get(".h-100")
-        .contains("Тихий шепот")
-        .get(".card-footer > .btn")
+        .first()
+        .within(() => {
+          cy.get(".card-title").contains("Тихий шепот");
+        })
+        .find(".card-footer > .btn")
         .should("contain.text", "Add to favorite");
     });
 
     it("add to favorites", () => {
       cy.addFavorite("Тихий шепот");
       cy.get(".h-100")
-        .contains("Тихий шепот")
+        .first()
+        .within(() => {
+          cy.get(".card-title").contains("Тихий шепот");
+        })
         .get(".card-footer > .btn")
         .should("contain.text", "Delete from favorite");
     });
